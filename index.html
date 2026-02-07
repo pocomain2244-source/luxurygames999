@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>luxury.games99 🎮 PRO</title>
+
+<style>
+*{box-sizing:border-box;}
+body{
+margin:0;
+font-family:'Segoe UI',Arial,sans-serif;
+background:radial-gradient(circle at top,#1a1a2e,#0b0b12);
+color:#fff;
+}
+header{
+background:linear-gradient(90deg,#0f0f0f,#1a1a1a);
+padding:18px;
+text-align:center;
+font-size:32px;
+font-weight:900;
+letter-spacing:1px;
+border-bottom:3px solid #5a5aff;
+box-shadow:0 5px 20px rgba(0,0,0,.6);
+}
+.search-bar{
+display:flex;
+justify-content:center;
+margin:16px;
+}
+.search-bar input{
+width:75%;
+padding:12px 16px;
+font-size:18px;
+border-radius:12px;
+border:none;
+outline:none;
+box-shadow:0 0 15px rgba(90,90,255,.2);
+}
+.games-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+gap:16px;
+padding:16px;
+}
+.game-card{
+position:relative;
+border-radius:16px;
+cursor:pointer;
+overflow:hidden;
+transition:.35s;
+border:2px solid rgba(255,255,255,.08);
+background:#000;
+}
+.game-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(to top,rgba(0,0,0,.9),transparent 50%);
+}
+.game-card:hover{
+transform:translateY(-8px) scale(1.03);
+border-color:#5a5aff;
+box-shadow:0 0 30px rgba(90,90,255,.6);
+}
+.game-card img{
+width:100%;
+height:280px;
+object-fit:cover;
+display:block;
+filter:brightness(.9);
+}
+.game-card p{
+position:absolute;
+bottom:0;
+width:100%;
+margin:0;
+padding:10px;
+text-align:center;
+font-weight:800;
+font-size:15px;
+z-index:2;
+letter-spacing:.5px;
+}
+.game-display{
+margin:25px auto;
+max-width:1200px;
+padding:14px;
+border-radius:16px;
+background:linear-gradient(145deg,#000,#050510);
+box-shadow:0 0 30px rgba(0,0,0,.7);
+border:2px solid rgba(255,255,255,.1);
+min-height:640px;
+}
+.game-display iframe{
+width:100%;
+height:640px;
+border:none;
+border-radius:12px;
+background:#000;
+}
+.loader{
+text-align:center;
+font-size:18px;
+padding:40px;
+opacity:.8;
+}
+</style>
+</head>
+
+<body>
+
+<header>luxury.games99 🎮 PRO</header>
+
+<div class="search-bar">
+<input type="text" id="search" placeholder="Buscar juegos..." oninput="filtrar()">
+</div>
+
+<div class="games-grid" id="gameList">
+
+<!-- Juegos -->
+<div class="game-card" onclick="cargarJuego('soldiers','Soldiers')"><img src="https://i.imgur.com/NUDkV7r.png"><p>Soldiers</p></div>
+<div class="game-card" onclick="cargarJuego('brainrot','Steal a Brainrot')"><img src="https://i.imgur.com/Yp4qO2M.png"><p>Steal a Brainrot</p></div>
+<div class="game-card" onclick="cargarJuego('car','Ultimate Car Driving Simulator')"><img src="https://i.imgur.com/sbLDnQI.jpg"><p>Ultimate Car Driving</p></div>
+<div class="game-card" onclick="cargarJuego('epicbattle','Epic Battle Simulator 2')"><img src="https://i.imgur.com/mdg1H9K.jpg"><p>Epic Battle Simulator 2</p></div>
+<div class="game-card" onclick="cargarJuego('survivor','Survivor.io')"><img src="https://i.imgur.com/5BC9FVY.jpg"><p>Survivor.io</p></div>
+<div class="game-card" onclick="cargarJuego('stickworld','Stickman World Battle')"><img src="https://i.imgur.com/umV3J9b.png"><p>Stickman World Battle</p></div>
+<div class="game-card" onclick="cargarJuego('stickdes','Stickman Destruction 3 Heroes')"><img src="https://i.imgur.com/uDMENX3.png"><p>Stickman Destruction 3</p></div>
+<div class="game-card" onclick="cargarJuego('beatpuppet','Beat The Puppet')"><img src="https://i.imgur.com/p8LXHev.jpg"><p>Beat The Puppet</p></div>
+<div class="game-card" onclick="cargarJuego('carage','CarAge Open World Simulator 3D')"><img src="https://i.imgur.com/HXqZcI3.jpg"><p>CarAge Open World</p></div>
+<div class="game-card" onclick="cargarJuego('missile','Missile Dude RPG Idle Hero')"><img src="https://i.imgur.com/0qlxmrN.jpg"><p>Missile Dude RPG</p></div>
+<div class="game-card" onclick="cargarJuego('army','Army Battle Simulator')"><img src="https://i.imgur.com/REzPFvT.png"><p>Army Battle Simulator</p></div>
+<div class="game-card" onclick="cargarJuego('blockblast','Block Blast Puzzle Game')"><img src="https://i.imgur.com/0Cc2OjH.jpg"><p>Block Blast Puzzle</p></div>
+<div class="game-card" onclick="cargarJuego('granny','Granny')"><img src="https://i.imgur.com/BlzI0kZ.jpg"><p>Granny</p></div>
+<div class="game-card" onclick="cargarJuego('flatzombies','Flat Zombies: Defense & Cleanup')"><img src="https://i.imgur.com/5w8YJ4h.jpg"><p>Flat Zombies</p></div>
+<div class="game-card" onclick="cargarJuego('survivalisland','Survival Island Idle Game')"><img src="https://i.imgur.com/4R7nC5V.jpg"><p>Survival Island Idle</p></div>
+<div class="game-card" onclick="cargarJuego('chess','Chess Online')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Chess_Pieces_Sprite.svg/512px-Chess_Pieces_Sprite.svg.png"><p>Chess Online</p></div>
+
+</div>
+
+<div class="game-display" id="displayArea">
+<div class="loader">🎮 Selecciona un juego para comenzar</div>
+</div>
+
+<script>
+function cargarJuego(id,nombre){
+const display=document.getElementById("displayArea");
+let url="";
+switch(id){
+case 'soldiers':url="https://html5.gamedistribution.com/53ad84c4f3b440f2b65d5382fadf731f/";break;
+case 'brainrot':url="https://html5.gamedistribution.com/87f052f266fe4ebdb89c1841bc2c5ad6/";break;
+case 'car':url="https://www.madkidgames.com/full/ultimate-car-driving-simulator";break;
+case 'epicbattle':url="https://www.madkidgames.com/full/epic-battle-simulator-2";break;
+case 'survivor':url="https://www.madkidgames.com/full/survivor-io";break;
+case 'stickworld':url="https://www.madkidgames.com/full/stickman-world-battle";break;
+case 'stickdes':url="https://www.madkidgames.com/full/stickman-destruction-3-heroes-ragdoll-game";break;
+case 'beatpuppet':url="https://www.madkidgames.com/full/beat-the-puppet";break;
+case 'carage':url="https://www.madkidgames.com/full/carage-open-world-simulator-3d";break;
+case 'missile':url="https://www.madkidgames.com/full/missile-dude-rpg-idle-hero";break;
+case 'army':url="https://www.madkidgames.com/full/army-battle-simulator";break;
+case 'blockblast':url="https://www.madkidgames.com/full/block-blast-puzzle-game";break;
+case 'granny':url="https://www.madkidgames.com/full/granny";break;
+case 'flatzombies':url="https://www.madkidgames.com/full/flat-zombies-defense-and-cleanup";break;
+case 'survivalisland':url="https://www.madkidgames.com/full/survival-island-idle-game";break;
+case 'chess':url="https://playpager.com/embed/chess/index.html";break;
+}
+
+display.innerHTML=`
+<h2 style="text-align:center;margin:10px 0;">${nombre}</h2>
+<iframe id="gameFrame" src="${url}" loading="lazy" allowfullscreen></iframe>
+`;
+
+const iframe=document.getElementById("gameFrame");
+if(iframe.requestFullscreen){
+iframe.requestFullscreen().catch(()=>{});
+}
+}
+
+function filtrar(){
+const term=document.getElementById("search").value.toLowerCase();
+document.querySelectorAll(".game-card").forEach(card=>{
+const text=card.textContent.toLowerCase();
+card.style.display=text.includes(term)?"block":"none";
+});
+}
+</script>
+
+</body>
+</html>
